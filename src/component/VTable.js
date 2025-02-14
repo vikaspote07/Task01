@@ -1,15 +1,18 @@
 import { Pagination, Stack } from "@mui/material";
+import axios from "axios";
 import { ArrowUpDownIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import Spinner from "./Spinner";
 
 /* eslint-disable react/prop-types */
 const Table = ({
   cols,
   data,
+  values,
   totalPages,
+  loading,
   page,
   handlePageChange,
   handleRowsPerPageChange,
@@ -24,7 +27,7 @@ const Table = ({
 
   const sortedData = () => {
     if (sortConfig.key !== null) {
-      const sortedItems = [...data];
+      const sortedItems = [...data, ...values];
       sortedItems.sort((a, b) => {
         const valueA = a[sortConfig.key];
         const valueB = b[sortConfig.key];
@@ -106,9 +109,9 @@ const Table = ({
   };
 
   return (
-    <div className="p-2 bg-primaryDarkCards rounded-lg border border-primaryGray-700 overflow-x-auto table-content" >
-      <table className="min-w-full divide-y divide-gray-200 suppportable" >
-       {/* style={{width:"100%", whiteSpace:"nowrap", tableLayout:"fixed"}} */}
+    <div className="p-2 bg-primaryDarkCards rounded-lg border border-primaryGray-700 overflow-x-auto table-content">
+      <table className="min-w-full divide-y divide-gray-200 suppportable">
+        {/* style={{width:"100%", whiteSpace:"nowrap", tableLayout:"fixed"}} */}
 
         <thead>
           <tr>
@@ -119,8 +122,7 @@ const Table = ({
                   cursor: col.sortable ? "pointer" : "default",
                 }}
                 className="px-6 py-3 text-left text-ellipsis text-xs font-semibold text-gray-500 uppercase tracking-wider"
-                onClick={() => (col.sortable ? requestSort(col.key) : null)} 
-                
+                onClick={() => (col.sortable ? requestSort(col.key) : null)}
               >
                 <div className="flex justify-center">
                   {col.title}
@@ -164,14 +166,15 @@ const Table = ({
 
         <tbody className="divide-y divide-gray-600">
           {isTableLoading ? (
-            // Show a loading indicator while data is loading
+            // Show a loading indicator while data is loading{
+
             <tr>
               <td colSpan={cols?.length} className="text-ellipsis">
                 <div className="loader my-2">
                   <SkeletonTheme
                     baseColor="#202020"
                     highlightColor="#19191c"
-                    height={30}
+                    height={300}
                   >
                     <Skeleton count={10} />
                   </SkeletonTheme>
@@ -180,12 +183,11 @@ const Table = ({
             </tr>
           ) : data?.length === 0 ? (
             // Show "No data found" message when there is no data
+
             <tr>
               <td
                 colSpan={cols?.length}
                 className="px-6 py-4 whitespace-nowrap text-center"
-                
-                
               >
                 <div className="no-data-container">
                   <img
@@ -200,17 +202,20 @@ const Table = ({
             </tr>
           ) : (
             // Render the data rows when data is available
-            sortedData().map((item, rowIndex) => (
+            sortedData()?.map((item, rowIndex) => (
               <tr key={rowIndex}>
                 {cols.map((col, colIndex) => (
                   <td
                     key={colIndex}
                     className={`px-6 py-4  text-ellipsis text-xs font-medium text-gray-500  tracking-wider   valuesfont  ${
                       col.colored ? "text-gradient font-semibold truncate" : ""
-                    }` }
-                    style={{overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap"}}
+                    }`}
+                    style={{
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
                   >
-                    
                     {col.render
                       ? col.render(item, rowIndex)
                       : item[col.dataIndex]}

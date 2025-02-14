@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../component/Header";
 import Sidebar from "../component/sidebar";
 
+
 const Layout = ({ children }) => {
     return (
       <section>
