@@ -74,7 +74,7 @@ export default function Addproduct() {
         }
       );
 
-      // Axios doesn't use response.ok, check response.status instead
+    
       if (response.status >= 200 && response.status < 300) {
         toast.success("Product added successfully!", { duration: 3000 });
         navigate("/product");
