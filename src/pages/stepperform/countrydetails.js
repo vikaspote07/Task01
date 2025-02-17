@@ -3,15 +3,15 @@ import Select from "react-select";
 
 export default function CountryDetails({ formData, setFormData }) {
   const countryOptions = [
-    { value: 1, label: "India" },        // Changed to number
-    { value: 2, label: "Afghanistan" },   // Changed to number
-    { value: 3, label: "Albania" },      // Changed to number
+    { value: 1, label: "India" },        
+    { value: 2, label: "Afghanistan" },   
+    { value: 3, label: "Albania" },      
   ];
   
   const stateOptions = [
-    { value: 1, label: "Maharashtra" },   // Changed to number
-    { value: 2, label: "Gujarat" },       // Changed to number
-    { value: 3, label: "Kerala" },        // Changed to number
+    { value: 1, label: "Maharashtra" },   
+    { value: 2, label: "Gujarat" },       
+    { value: 3, label: "Kerala" },      
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function CountryDetails({ formData, setFormData }) {
                 onChange={(selectedOption) =>
                   setFormData({
                     ...formData,
-                    countryId: selectedOption?.value || '' // Store just the numeric value
+                    countryId: selectedOption?.value || '' 
                   })
                 }
                 isSearchable={true}
@@ -66,7 +66,7 @@ export default function CountryDetails({ formData, setFormData }) {
                 onChange={(selectedOption) =>
                   setFormData({
                     ...formData,
-                    stateId: selectedOption?.value || '' // Store just the numeric value
+                    stateId: selectedOption?.value || '' 
                   })
                 }
                 isSearchable={true}
