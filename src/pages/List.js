@@ -24,8 +24,8 @@ export default function List() {
     try {
 
           const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/user-delete`, // Remove ID from the URL
-        { user_id: id }, // Send user ID in the body instead
+        `${process.env.REACT_APP_BASE_URL}/user-delete`, 
+        { user_id: id }, 
         { headers: { Authorization: `Bearer ${token}` } }
 
       );
