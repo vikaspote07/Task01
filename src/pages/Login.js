@@ -105,7 +105,7 @@ export default function Login() {
                       className="w-full px-3 py-3 text-sm leading-normal text-gray-50 border-0 bg-[#ffffff1a] rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="password"
                       type="password"
-                      name="password" // Fixed name attribute to match the form input
+                      name="password" 
                       placeholder="Password"
                       value={value.password}
                       onChange={handleInputChange}
