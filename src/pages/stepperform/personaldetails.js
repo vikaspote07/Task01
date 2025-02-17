@@ -74,7 +74,7 @@ export default function Personaldetails({ formData, setFormData }) {
                       name="gender"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-200 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       value="male"
-                      checked={formData.gender === "male"} // Correct checked handling
+                      checked={formData.gender === "male"} 
                       onChange={(e) =>
                         setFormData({ ...formData, gender: e.target.value })
                       }
@@ -93,7 +93,7 @@ export default function Personaldetails({ formData, setFormData }) {
                       name="gender"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-200 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       value="female"
-                      checked={formData.gender === "female"} // Correct checked handling
+                      checked={formData.gender === "female"} 
                       onChange={(e) =>
                         setFormData({ ...formData, gender: e.target.value })
                       }
@@ -112,7 +112,7 @@ export default function Personaldetails({ formData, setFormData }) {
                       name="gender"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-200 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       value="other"
-                      checked={formData.gender === "other"} // Correct checked handling
+                      checked={formData.gender === "other"} 
                       onChange={(e) =>
                         setFormData({ ...formData, gender: e.target.value })
                       }
