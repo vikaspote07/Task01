@@ -25,51 +25,7 @@ export default function Addproduct() {
 
     console.log(addProduct);
   };
-  // const onsubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const token = JSON.parse(localStorage.getItem("authToken"));
-
-  //     if (!token) {
-  //       console.error("No authentication token found.");
-  //       return;
-  //     }
-
-  //     // if image is file
-  //     if (!(addProduct.productImg instanceof File)) {
-  //       console.error("Please upload a valid image file.");
-  //       return;
-  //     }
-
-  //     const formData = new FormData();
-  //     formData.append("name", addProduct.productName);
-  //     formData.append("description", addProduct.productDescription);
-  //     formData.append("price", addProduct.productPrice);
-  //     formData.append("image", addProduct.productImg);
-
-  //     const response = await axios.post(
-  //       `${process.env.REACT_APP_BASE_URL}/add-product`,
-  //       formData,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       toast.success("Product added successfully", { duration: 3000 });
-  //       navigate("/product")
-  //     }
-  //     // console.log("Product added successfully:", response.data);
-  //   } catch (error) {
-  //     if(error.message){
-  //       return toast.error(error.message,{duration: 3000});
-  //     }
-  //   }
-  // };
+  
 
   const onsubmit = async (e) => {
     e.preventDefault();
