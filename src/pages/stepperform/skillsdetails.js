@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function SkillsDetails({ formData, setFormData }) {
-  // Add a new skill field
+  
   const handleAddSkill = () => {
     setFormData({
       ...formData,
@@ -9,16 +9,16 @@ export default function SkillsDetails({ formData, setFormData }) {
     });
   };
 
-  // Remove a skill at specific index
+  
   const handleRemoveSkill = (index) => {
-    if (index < 2) return; // Prevent removing first two default fields
+    if (index < 2) return; 
     setFormData({
       ...formData,
       skills: formData.skills.filter((_, i) => i !== index)
     });
   };
 
-  // Update skill value at specific index
+  
   const handleSkillChange = (index, value) => {
     const updatedSkills = [...formData.skills];
     updatedSkills[index] = value;
@@ -43,7 +43,7 @@ export default function SkillsDetails({ formData, setFormData }) {
               Skills
             </label>
             
-            {/* First default input box */}
+            
             <div className="flex space-x-6 mb-4">
               <input
                 type="text"
@@ -57,7 +57,7 @@ export default function SkillsDetails({ formData, setFormData }) {
                 </button>
             </div>
 
-            {/* Second default input box */}
+            
             <div className="flex space-x-6 mb-4">
               <input
                 type="text"
@@ -71,7 +71,7 @@ export default function SkillsDetails({ formData, setFormData }) {
                 </button>
             </div>
 
-            {/* Dynamic additional input boxes */}
+            
             {formData.skills.slice(2).map((skill, index) => (
               <div key={index + 2} className="flex space-x-6 mb-4">
                 <input
